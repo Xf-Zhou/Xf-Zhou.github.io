@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: xf-zhou.github.io   #网站域名
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -44,13 +44,20 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-highlight:
-  enable: true
+highlight:  #关闭Hexo自带的highlight
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
+
+# https://github.com/ele828/hexo-prism-plugin
+prism_plugin:  #用hexo-prism-plugin替代highlight
+  mode: preprocess # realtime/preprocess
+  theme: default
+  line_number: false # default false 行号关闭
+  # custom_css: "path/to/your/custom.css" # optional
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')

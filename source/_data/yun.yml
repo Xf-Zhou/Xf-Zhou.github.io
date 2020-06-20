@@ -1,8 +1,166 @@
-﻿avatar:
+﻿#主题配置
+#主题色
+colors:  #主题颜色
+  primary: "#6200ee"
+  selection_bg: "#66FF33" # 选取文字时的背景色
+
+tags:   #可以为你的标签指定色彩
+  Vue: "#4fc08d"
+  Hexo: "#0E834D"
+  CSS: "#5298d1"
+  Node.js: "#026E00"
+  Git: "#F14E32"
+  React: "#61dafb"
+  Python: "#3776ab"
+  PHP: "#8892BF"
+  VS Code: "#0066B8"
+  JavaScript: "#F4DF4F"
+  TypeScript: "#317AC6"
+  Laravel: "#F4645F"
+
+#社交图标
+social:  
+  - name: GitHub
+    link: https://github.com/Xf-Zhou
+    icon: icon-github-line
+    color: "#181717"
+  - name: E-Mail
+    link: mailto:2102813085@qq.com
+    icon: icon-mail-line
+    color: "#8E71C1"
+
+#首页
+banner:   # 标语动画
+  enable: true
+  title: 恍惚斋
+  src: /js/ui/banner.js
+  cloud:
+    enable: true
+    color: "blue"
+  go_down:
+    enable: true
+    icon: icon-arrow-down-s-line
+
+notice:   #公告
+  enable: true
+  content: Thank you for your appearance in my world.
+
+#UI
+mode: auto   #亮暗模式  # 可选 light | dark | auto
+
+trianglify:    #随机多边形背景
+  enable: false
+  cellSize: 75
+  width: 800
+  height: 600
+  palette: '["YlGnBu", "GnBu", "Purples", "Blues"]'
+  opacity: 0.5
+
+fireworks: #点击页面的烟花效果
+  enable: true
+  colors:
+    - "104, 100, 189"
+    - "93, 175, 189"
+    - "11, 163, 42"
+
+#侧边栏
+sidebar:   #侧边栏背景
+  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-1.jpg
+  bg_position: bottom 3rem center
+  tagcloud:
+    enable: false
+    amount: 20
+
+avatar:   # 头像
   url: /images/avatar.jpg # 你的头像图片地址
   rounded: true
   opacity: 1
 
-colors:
-  primary: "#6200ee"
-  selection_bg: "#8e71c1" # 选取文字时的背景色
+menu:   #导航
+  home:
+    path: /
+    icon: icon-home-4-line
+  list:
+    - type: archives
+      path: /archives/
+      icon: icon-archive-line
+    - type: categories
+      path: /categories/
+      icon: icon-folder-2-line
+    - type: tags
+      path: /tags/
+      icon: icon-price-tag-3-line
+    # - path: https://www.yunyoujun.cn
+    #   icon: icon-cloud-line
+    #   count: 你猜
+  custom:
+    title: 文档
+    path: https://yun.yunyoujun.cn
+    icon: icon-settings-line
+
+pages:  # 页面链接
+  - name: 我的小伙伴们
+    url: /links/
+    icon: icon-genderless-line
+    color: dodgerblue
+
+#文章
+post_meta:  #信息
+  item_text: false  #是否显示文字（如：发表于、更新于，若关闭则只显示图标与时间信息）
+  created_at: true #是否显示创建时间
+  updated_at: true #是否显示更新时间
+  categories: true  #是否显示种类
+  tags: true   #是否显示标签
+
+post_edit:  #编辑链接
+  enable: true
+  url: https://github.com/Xf-Zhou/Xf-Zhou.github.io/tree/hexo/source/
+
+lazyload:  #图片懒加载
+  enable: true
+
+#打赏
+reward_settings:   #打赏
+  enable: True   #开启
+  icon: icon-hand-coin-line
+  comment: 如果喜欢就点赞or赞赏
+
+reward:  # 打赏二维码
+  - name: 支付宝
+    path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg
+    color: "#00A3EE"
+    icon: icon-alipay-line
+  - name: 微信支付
+    path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg
+    color: "#2DC100"
+    icon: icon-wechat-pay-line
+ 
+#页脚
+footer:  #页脚
+  since: 2019
+  icon: #页脚的图标
+    name: icon-user-line
+    animated: true
+    color: "#0078E7"
+  live_time:  #运行时间
+    enable: True
+    prefix: 本博客已萌萌哒地运行
+    suffix: (●'◡'●)
+    start_time: "2019-06-19T00:00:00"	
+
+# 随机在网站主页显示一句中二的话
+say:  
+  enable: true
+  api: https://cdn.jsdelivr.net/gh/ElpsyCN/say@gh-pages/sentences.json
+  src: /js/say.js
+  # https://developer.hitokoto.cn/sentence/
+  hitokoto:  #一言api
+    enable: true  #开启
+    api: https://v1.hitokoto.cn
+
+#页面配置
+#文章
+
+#标签
+wordcloud:  #来使用彩色的词云替代原生的标签云
+  enable: true
