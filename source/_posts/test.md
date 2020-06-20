@@ -1,7 +1,11 @@
 ---
 title: test
 date: 2020-06-19 23:01:27
+categories:
+- 杂谈
 tags:
+- 第一次
+- test
 ---
 
 ## 这是一个测试标题
