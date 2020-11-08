@@ -6,43 +6,39 @@
 </script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#6200ee"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"root":"/","title":"恍惚斋","version":"0.9.0","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":["104, 100, 189","93, 175, 189","11, 163, 42"]}};
-  </script><meta name="description" content="Object类简介类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，所以，所有的类都是一个Object（对象）。 构造方法 Object(): ​            构造一个对象。所有子类对象初始化时都会优先调用该方法。   成员方法 int hashcode():  返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一般不同   Class&lt;?&gt;">
+  </script><meta name="description" content="Object类简介类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，所以，所有的类都是一个Object（对象）。 构造方法 Object(): ​            构造一个对象。所有子类对象初始化时都会优先调用该方法。   成员方法 int hashcode(): 返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一般不同   Class&lt;?&gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java常用类-Object">
 <meta property="og:url" content="https://xfzhou95.com/2020/11/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BB-Object/index.html">
 <meta property="og:site_name" content="恍惚斋">
-<meta property="og:description" content="Object类简介类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，所以，所有的类都是一个Object（对象）。 构造方法 Object(): ​            构造一个对象。所有子类对象初始化时都会优先调用该方法。   成员方法 int hashcode():  返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一般不同   Class&lt;?&gt;">
+<meta property="og:description" content="Object类简介类层次结构最顶层的基类，所有类都直接或间接的继承自Object类，所以，所有的类都是一个Object（对象）。 构造方法 Object(): ​            构造一个对象。所有子类对象初始化时都会优先调用该方法。   成员方法 int hashcode(): 返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一般不同   Class&lt;?&gt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:/Users/zhouxf/AppData/Roaming/Typora/typora-user-images/image-20201106001355973.png">
 <meta property="article:published_time" content="2020-11-05T15:58:18.289Z">
-<meta property="article:modified_time" content="2020-11-08T08:39:13.523Z">
+<meta property="article:modified_time" content="2020-11-08T08:46:03.544Z">
 <meta property="article:author" content="xfzhou">
 <meta property="article:tag" content="常用类">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/zhouxf/AppData/Roaming/Typora/typora-user-images/image-20201106001355973.png"><script src="/js/ui/mode.js"></script><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><script defer src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="xfzhou"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="xfzhou"></a><div class="site-author-name"><a href="/about/">xfzhou</a></div><a class="site-name" href="/about/site.html">恍惚斋</a><sub class="site-subtitle"></sub><div class="site-desciption">面壁十年图破壁</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">2</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">3</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/Xf-Zhou" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2102813085@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object类"><span class="toc-number">1.</span> <span class="toc-text">Object类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造方法"><span class="toc-number">1.2.</span> <span class="toc-text">构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员方法"><span class="toc-number">1.3.</span> <span class="toc-text">成员方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试成员方法"><span class="toc-number">1.4.</span> <span class="toc-text">测试成员方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaBean重写Object类的方法"><span class="toc-number">1.5.</span> <span class="toc-text">JavaBean重写Object类的方法</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://xfzhou95.com/2020/11/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BB-Object/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="xfzhou"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="恍惚斋"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Java常用类-Object<a class="post-edit-link" href="https://github.com/Xf-Zhou/Xf-Zhou.github.io/tree/hexo/source/_posts/Java常用类-Object.md" target="_blank" title="编辑" rel="noopener"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit-line"></use></svg></a></h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2020-11-05 23:58:18" itemprop="dateCreated datePublished" datetime="2020-11-05T23:58:18+08:00">2020-11-05</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2020-11-08 16:39:13" itemprop="dateModified" datetime="2020-11-08T16:39:13+08:00">2020-11-08</time></div><span class="leancloud_visitors" id="/2020/11/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BB-Object/" data-flag-title="Java常用类-Object"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><div class="post-classify"><span class="post-category"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/Java/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">Java</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E5%B8%B8%E7%94%A8%E7%B1%BB/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">常用类</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>类层次结构<strong>最顶层</strong>的基类，所有类都直接或间接的继承自Object类，所以，所有的类都是一个Object（对象）。</p>
+<meta name="twitter:image" content="c:/Users/zhouxf/AppData/Roaming/Typora/typora-user-images/image-20201106001355973.png"><script src="/js/ui/mode.js"></script><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><script defer src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="xfzhou"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="xfzhou"></a><div class="site-author-name"><a href="/about/">xfzhou</a></div><a class="site-name" href="/about/site.html">恍惚斋</a><sub class="site-subtitle"></sub><div class="site-desciption">面壁十年图破壁</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">2</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">3</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/Xf-Zhou" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2102813085@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object类"><span class="toc-number">1.</span> <span class="toc-text">Object类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造方法"><span class="toc-number">1.2.</span> <span class="toc-text">构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员方法"><span class="toc-number">1.3.</span> <span class="toc-text">成员方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试成员方法"><span class="toc-number">1.4.</span> <span class="toc-text">测试成员方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaBean重写Object类的方法"><span class="toc-number">1.5.</span> <span class="toc-text">JavaBean重写Object类的方法</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://xfzhou95.com/2020/11/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BB-Object/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="xfzhou"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="恍惚斋"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Java常用类-Object<a class="post-edit-link" href="https://github.com/Xf-Zhou/Xf-Zhou.github.io/tree/hexo/source/_posts/Java常用类-Object.md" target="_blank" title="编辑" rel="noopener"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit-line"></use></svg></a></h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2020-11-05 23:58:18" itemprop="dateCreated datePublished" datetime="2020-11-05T23:58:18+08:00">2020-11-05</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2020-11-08 16:46:03" itemprop="dateModified" datetime="2020-11-08T16:46:03+08:00">2020-11-08</time></div><span class="leancloud_visitors" id="/2020/11/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BB-Object/" data-flag-title="Java常用类-Object"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><div class="post-classify"><span class="post-category"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/Java/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">Java</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E5%B8%B8%E7%94%A8%E7%B1%BB/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">常用类</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>类层次结构<strong>最顶层</strong>的基类，所有类都直接或间接的继承自Object类，所以，所有的类都是一个Object（对象）。</p>
 <h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><ul>
 <li><p>Object():</p>
 <p>​            构造一个对象。所有子类对象初始化时都会优先调用该方法。</p>
 </li>
 </ul>
 <h3 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h3><ul>
-<li><p>int hashcode():</p>
-<ul>
+<li>int hashcode():<ul>
 <li>返回对象的哈希码值，该方法通过对象的地址值进行计算，不同对象的返回值一般不同</li>
 </ul>
 </li>
-<li><p>Class&lt;?&gt; getClass():</p>
-<ul>
+<li>Class&lt;?&gt; getClass():<ul>
 <li>返回调用此方法对象的运行时类对象（调用者的字节码文件对象）</li>
 </ul>
 </li>
-<li><p>String toString():</p>
-<ul>
+<li>String toString():<ul>
 <li>返回该对象的字符串表示</li>
 </ul>
 </li>
-<li><p>boolean equals()</p>
-<ul>
+<li>boolean equals()<ul>
 <li>返回其它某个对象是否与此对象“相等”。默认情况下比较两个对象的引用，建议重写</li>
 </ul>
 </li>
@@ -50,139 +46,139 @@
 <p>结构如下图所示：</p>
 <img src="C:\Users\zhouxf\AppData\Roaming\Typora\typora-user-images\image-20201106001355973.png" alt="image-20201106001355973" style="zoom:50%;" / loading="lazy">
 
-<h3 id="测试成员方法"><a href="#测试成员方法" class="headerlink" title="测试成员方法"></a>测试成员方法</h3><pre class=" language-Java"><code class="language-Java">
-public class Demo1 {
-    public static void main(String[] args) {
-        Object obj1 = new Object();
-        Object obj2 = new Object();
+<h3 id="测试成员方法"><a href="#测试成员方法" class="headerlink" title="测试成员方法"></a>测试成员方法</h3><pre class=" language-java"><code class="language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo1</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Object obj1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Object obj2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        // 返回对象的哈希码值，不同对象的哈希码值一般不同
-        int code1 = obj1.hashCode();
-        int code2 = obj2.hashCode();
-        System.out.println(code1);
-        System.out.println(code2);
-        System.out.println("==========================");
+        <span class="token comment" spellcheck="true">// 返回对象的哈希码值，不同对象的哈希码值一般不同</span>
+        <span class="token keyword">int</span> code1 <span class="token operator">=</span> obj1<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> code2 <span class="token operator">=</span> obj2<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>code1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>code2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //返回该调用者的字节码文件对象，一个类只有一个字节码文件对象。
-        Class<?> class1 = obj1.getClass();
-        Class<?> class2 = obj1.getClass();
-        System.out.println(class1);
-        System.out.println(class2);
-        System.out.println("==========================");
+        <span class="token comment" spellcheck="true">//返回该调用者的字节码文件对象，一个类只有一个字节码文件对象。</span>
+        Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span> class1 <span class="token operator">=</span> obj1<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span> class2 <span class="token operator">=</span> obj1<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>class1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>class2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //返回该对象的字符串表示形式，默认打印的是地址值，但是不同对象的地址值背定不同。
-        //地址值的组成：全类名+@+该对象的哈希码的无符号十六进制形式
-        String s1 = obj1.toString();
-        String s2 = obj2.toString();
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println("==========================");
+        <span class="token comment" spellcheck="true">//返回该对象的字符串表示形式，默认打印的是地址值，但是不同对象的地址值背定不同。</span>
+        <span class="token comment" spellcheck="true">//地址值的组成：全类名+@+该对象的哈希码的无符号十六进制形式</span>
+        String s1 <span class="token operator">=</span> obj1<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String s2 <span class="token operator">=</span> obj2<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //比较两个对象是否相等默认比较的是地址值，无意义，子类一般都会重写这个方法！
-        boolean b1 = obj1.equals(obj2);
-        System.out.println(b1);
+        <span class="token comment" spellcheck="true">//比较两个对象是否相等默认比较的是地址值，无意义，子类一般都会重写这个方法！</span>
+        <span class="token keyword">boolean</span> b1 <span class="token operator">=</span> obj1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    }
-}
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 
-381259350
-2129789493
-==========================
-class java.lang.Object
-class java.lang.Object
-==========================
-java.lang.Object@16b98e56
-java.lang.Object@7ef20235
-==========================
-false</code></pre>
+<span class="token number">381259350</span>
+<span class="token number">2129789493</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+<span class="token keyword">class</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Object</span>
+<span class="token keyword">class</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Object</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Object<span class="token annotation punctuation">@16b98e56</span>
+java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Object<span class="token annotation punctuation">@7ef20235</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+<span class="token boolean">false</span></code></pre>
 <h3 id="JavaBean重写Object类的方法"><a href="#JavaBean重写Object类的方法" class="headerlink" title="JavaBean重写Object类的方法"></a>JavaBean重写Object类的方法</h3><p><strong>需求</strong>：开发中通常需要将对象转成字符串形式进行传输，也需要对即将使用的对象进行相等判断。定义标准JavaBean类，重写toString和equals方法。</p>
 <p><strong>步骤：</strong><br>◆ 定义标准Java Bean类Student，属性：id，name，score</p>
 <p>◆重写toString0：<br>          该对象的字符串表现形式，一般都是包含所有属性值且具有一定的格式的字符串<br>◆重写equals0：<br>          可以通过关键属性（id）来确定该类的两个对象是否相同，可以比较所有属性值<br>◆在测试类中创建Student对象并使用</p>
-<pre class=" language-Java"><code class="language-Java">package com.kuangstudy.cyclass;
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>kuangstudy<span class="token punctuation">.</span>cyclass<span class="token punctuation">;</span>
 
-import java.util.Objects;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Objects<span class="token punctuation">;</span>
 
-public class Student {
-    //成员变量
-    private int id;           //编号
-    private String name;      //姓名
-    private int score;        //分数
-
-
-    //构造方法
-    public Student() {
-    }
-    public Student(int id, String name, int score) {
-        this.id = id;
-        this.name = name;
-        this.score = score;
-    }
-    //成员方法
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-    //toString（），用来将对象转成其对应的字符串形式.
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", score=" + score +
-                '}';
-    }
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//成员变量</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">//编号</span>
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//姓名</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> score<span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//分数</span>
 
 
-/*    //自定义equals（）方法，用来比较两个对象是否相同的.
+    <span class="token comment" spellcheck="true">//构造方法</span>
+    <span class="token keyword">public</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">,</span> String name<span class="token punctuation">,</span> <span class="token keyword">int</span> score<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>score <span class="token operator">=</span> score<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//成员方法</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> id<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setId</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> score<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setScore</span><span class="token punctuation">(</span><span class="token keyword">int</span> score<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>score <span class="token operator">=</span> score<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//toString（），用来将对象转成其对应的字符串形式.</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"Student{"</span> <span class="token operator">+</span>
+                <span class="token string">"id="</span> <span class="token operator">+</span> id <span class="token operator">+</span>
+                <span class="token string">", name='"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">", score="</span> <span class="token operator">+</span> score <span class="token operator">+</span>
+                <span class="token string">'}'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+<span class="token comment" spellcheck="true">/*    //自定义equals（）方法，用来比较两个对象是否相同的.
     public boolean equals(Object obj){
         //向下转型,父类obj没有子类Student的id属性
         Student s2 = (Student) obj;
         return this.id == s2.id;
 
-    }*/
-    //通过快捷键的方式生成，步骤掌握，代码理解.
-    @Override
-    public boolean equals(Object o) {
-        //比较两个对象的地址值是否相同，提高效率.
-        //补充：如果if语句控制的语句体只有一行代码，那么{}可以省略不写
-        if (this == o)
-            return true;
-        //判断要比较的两个对象是否是同一个类型的对象，提高程序的健壮性。
-        if (o == null || getClass() != o.getClass())
-            return false;
-        //向下转型，正常的逻辑代码
-        Student student = (Student) o;
-        return id == student.id &&
-                score == student.score &&
-                name.equals(student.name);
-    }
+    }*/</span>
+    <span class="token comment" spellcheck="true">//通过快捷键的方式生成，步骤掌握，代码理解.</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span>Object o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//比较两个对象的地址值是否相同，提高效率.</span>
+        <span class="token comment" spellcheck="true">//补充：如果if语句控制的语句体只有一行代码，那么{}可以省略不写</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> o<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断要比较的两个对象是否是同一个类型的对象，提高程序的健壮性。</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> null <span class="token operator">||</span> <span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> o<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//向下转型，正常的逻辑代码</span>
+        Student student <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> id <span class="token operator">==</span> student<span class="token punctuation">.</span>id <span class="token operator">&amp;&amp;</span>
+                score <span class="token operator">==</span> student<span class="token punctuation">.</span>score <span class="token operator">&amp;&amp;</span>
+                name<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>student<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, score);
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Objects<span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> score<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>kuangstudy<span class="token punctuation">.</span>cyclass<span class="token punctuation">;</span>
 
