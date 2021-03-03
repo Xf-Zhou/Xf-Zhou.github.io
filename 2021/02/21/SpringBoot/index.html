@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#6200ee"><meta name="author" content="xfzhou"><meta name="copyright" content="xfzhou"><meta name="generator" content="Hexo 4.2.1"><meta name="theme" content="hexo-theme-yun"><title>SpringBoot | 恍惚斋</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;family=Source+Code+Pro&amp;display=swap" media="none" onload="this.media='all'"><script src="//at.alicdn.com/t/font_1140697_pem9yni52s.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#6200ee"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"root":"/","title":"恍惚斋","version":"0.9.0","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":["104, 100, 189","93, 175, 189","11, 163, 42"]}};
+  </script><meta name="description" content="微服务阶段javase：OOP  mysql：持久化 html+csstjstjquery+框架：视图，框架不熟练，css不好； javaweb：独立开发MVC三层架构的网站了：原始 ssm：框架：简化了我们的开发流程，配置也开始较为复杂！ 之前都是打war包：Tomcat运行 spring再简化：SpringBoot  打jar包：内嵌tomcat；微服务架构！ 服务越来越多：springclo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot">
+<meta property="og:url" content="https://xfzhou95.com/2021/02/21/SpringBoot/index.html">
+<meta property="og:site_name" content="恍惚斋">
+<meta property="og:description" content="微服务阶段javase：OOP  mysql：持久化 html+csstjstjquery+框架：视图，框架不熟练，css不好； javaweb：独立开发MVC三层架构的网站了：原始 ssm：框架：简化了我们的开发流程，配置也开始较为复杂！ 之前都是打war包：Tomcat运行 spring再简化：SpringBoot  打jar包：内嵌tomcat；微服务架构！ 服务越来越多：springclo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/image-20210221182811388.png">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/1908735-20200809100349596-622322412.png">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/1908735-20200118200719782-1043874188.png">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/image-20210223002817756.png">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/640.jpg">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/image-20210223003108912.png">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/1418974-20200309184347408-1065424525.png">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/image-20210226225440506.png">
+<meta property="og:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/image-20210226225453745.png">
+<meta property="article:published_time" content="2021-02-21T10:17:45.571Z">
+<meta property="article:modified_time" content="2021-02-26T16:32:43.509Z">
+<meta property="article:author" content="xfzhou">
+<meta property="article:tag" content="SpringBoot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xfzhou95.com/2021/02/21/SpringBoot/SpringBoot.assets/image-20210221182811388.png"><script src="/js/ui/mode.js"></script><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><script defer src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="xfzhou"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="xfzhou"></a><div class="site-author-name"><a href="/about/">xfzhou</a></div><a class="site-name" href="/about/site.html">恍惚斋</a><sub class="site-subtitle"></sub><div class="site-desciption">面壁十年图破壁</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">43</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">3</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">18</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/Xf-Zhou" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2102813085@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#微服务阶段"><span class="toc-number">1.</span> <span class="toc-text">微服务阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是微服务？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是微服务？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单体应用架构"><span class="toc-number">1.2.</span> <span class="toc-text">单体应用架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#微服务架构"><span class="toc-number">1.3.</span> <span class="toc-text">微服务架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回顾什么是Spring"><span class="toc-number">2.1.</span> <span class="toc-text">回顾什么是Spring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring是如何简化Java开发的"><span class="toc-number">2.2.</span> <span class="toc-text">Spring是如何简化Java开发的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是SpringBoot"><span class="toc-number">2.3.</span> <span class="toc-text">什么是SpringBoot</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello，World"><span class="toc-number">3.</span> <span class="toc-text">Hello，World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-number">3.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建基础项目说明"><span class="toc-number">3.2.</span> <span class="toc-text">创建基础项目说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pom-xml-分析"><span class="toc-number">3.3.</span> <span class="toc-text">pom.xml 分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写一个http接口"><span class="toc-number">3.4.</span> <span class="toc-text">编写一个http接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将项目打成jar包，点击-maven的-package"><span class="toc-number">3.5.</span> <span class="toc-text">将项目打成jar包，点击 maven的 package</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行原理初探"><span class="toc-number">4.</span> <span class="toc-text">运行原理初探</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pom-xml"><span class="toc-number">4.1.</span> <span class="toc-text">pom.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主启动类"><span class="toc-number">4.2.</span> <span class="toc-text">主启动类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringApplication"><span class="toc-number">4.3.</span> <span class="toc-text">SpringApplication</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#不简单的方法"><span class="toc-number">4.3.1.</span> <span class="toc-text">不简单的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SpringApplication-1"><span class="toc-number">4.3.2.</span> <span class="toc-text">SpringApplication</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run方法流程分析"><span class="toc-number">4.3.3.</span> <span class="toc-text">run方法流程分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springboot配置"><span class="toc-number">5.</span> <span class="toc-text">springboot配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yaml语法"><span class="toc-number">5.1.</span> <span class="toc-text">yaml语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-Web开发"><span class="toc-number">6.</span> <span class="toc-text">SpringBoot Web开发</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://xfzhou95.com/2021/02/21/SpringBoot/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="xfzhou"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="恍惚斋"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">SpringBoot<a class="post-edit-link" href="https://github.com/Xf-Zhou/Xf-Zhou.github.io/tree/hexo/source/_posts/SpringBoot.md" target="_blank" title="编辑" rel="noopener"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit-line"></use></svg></a></h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2021-02-21 18:17:45" itemprop="dateCreated datePublished" datetime="2021-02-21T18:17:45+08:00">2021-02-21</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2021-02-27 00:32:43" itemprop="dateModified" datetime="2021-02-27T00:32:43+08:00">2021-02-27</time></div><span class="leancloud_visitors" id="/2021/02/21/SpringBoot/" data-flag-title="SpringBoot"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><div class="post-classify"><span class="post-category"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/Java/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">Java</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/SpringBoot/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">SpringBoot</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><h2 id="微服务阶段"><a href="#微服务阶段" class="headerlink" title="微服务阶段"></a>微服务阶段</h2><p>javase：OOP </p>
+<p>mysql：持久化</p>
+<p>html+csstjstjquery+框架：视图，框架不熟练，css不好；</p>
+<p>javaweb：独立开发MVC三层架构的网站了：原始</p>
+<p>ssm：框架：简化了我们的开发流程，配置也开始较为复杂！</p>
+<p>之前都是打<strong>war包：Tomcat运行</strong></p>
+<p>spring再简化：SpringBoot  打jar包：内嵌tomcat；微服务架构！</p>
+<p>服务越来越多：springcloud；</p>
+<p>学习路线：</p>
+<p><img src="SpringBoot.assets/image-20210221182811388.png" alt="image-20210221182811388" loading="lazy"></p>
+<h3 id="什么是微服务？"><a href="#什么是微服务？" class="headerlink" title="什么是微服务？"></a>什么是微服务？</h3><p><a href="https://www.cnblogs.com/liuning8023/p/4493156.html——微服务的一篇论文" target="_blank" rel="noopener">https://www.cnblogs.com/liuning8023/p/4493156.html——微服务的一篇论文</a></p>
+<p>微服务是一种<strong>架构</strong>风格，它要求我们在开发一个应用的时候，这个应用必须构建成一系列小服务的组合；可以通过http的方式进行互通。要说微服务架构，先得说说过去我们的单体应用架构。</p>
+<h3 id="单体应用架构"><a href="#单体应用架构" class="headerlink" title="单体应用架构"></a>单体应用架构</h3><ul>
+<li>单体应用架构（all in one）是指，我们将一个应用的中的所有应用服务都封装在一个应用中。无论是ERP、CRM或是其他什么系统，你都把数据库访问，web访问，等等各个功能放到一个war包内。<ul>
+<li>这样做的好处是，易于开发和测试；也十分方便部署；当需要扩展时，只需将war复制多份，然后放到多个服务器上，再做个<strong>负载均衡</strong>就可以了。</li>
+<li>缺点是，哪怕我要修改一个非常小的地方，我都需要停掉整个服务，重新打包、部署这个应用war包，特别是对于一个大型应用，我们不可能把所有内容都放在一个应用里面，我们如何维护，如何分工合作都是问题。</li>
+</ul>
+</li>
+</ul>
+<h3 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h3><ul>
+<li><p>所谓微服务架构，就是打破之前all in one的架构方式，把每个功能元素独立出来。把独立出来的功能元素的动态组合，需要的功能元素才去拿来组合，需要多一些时可以整合多个功能元素。<strong>所以微服务架构是对功能元素进行复制，而没有对整个应用进行复制。</strong></p>
+<ul>
+<li><p>这样做的好处是：</p>
+<ol>
+<li>节省了调用资源。</li>
+<li>每个功能元素的服务都是一个可替换的、可独立升级的软件代码。</li>
+</ol>
+<p>微服务例子如下图：</p>
+<p><img src="SpringBoot.assets/1908735-20200809100349596-622322412.png" alt="img" loading="lazy"></p>
+</li>
+</ul>
+<p>左图是把所有模块放在一起的（单体应用架构），右图就把所有的模块分别独立出来，然后组合在一起，可以随意替换（微服务架构）</p>
+<p>微服务实现了<strong>高内聚，低耦合</strong>。</p>
+<p><strong>高内聚</strong>：尽可能类的每个成员方法只完成一件事（最大限度的聚合）；</p>
+<p><strong>低耦合</strong>：减少类内部，一个成员方法调用另一个成员方法。</p>
+<ol>
+<li>从类角度来看， 高内聚低耦合：减少类内部，对其他类的调用；</li>
+<li>从功能块来看 高内聚低耦合：减少模块之间的交互复杂度（接口数量，参数数据）</li>
+</ol>
+<p>即横向：类与类之间、模块与模块之间； 纵向：层次之间；尽可能，内容内聚，数据耦合。</p>
+<p>简单来说一个项目中 可以由多个 小型服务构成 （微服务），如下图</p>
+<p><img src="SpringBoot.assets/1908735-20200118200719782-1043874188.png" alt="img" loading="lazy"></p>
+</li>
+<li><p>比如一个电商系统，查缓存、连数据库、浏览页面、结账、支付等服务都是一个个独立的功能服务，都被微化了，它们作为一个个微服务共同构建了一个庞大的系统。</p>
+</li>
+<li><p>但是这种庞大的系统架构给部署和运维带来很大的难度。于是，spring为我们带来了构建大型分布式微服务的全套、全程产品</p>
+</li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://mp.weixin.qq.com/s/QSm0G1pgosE4H4IQGx9uTw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/QSm0G1pgosE4H4IQGx9uTw</a></p>
+<h3 id="回顾什么是Spring"><a href="#回顾什么是Spring" class="headerlink" title="回顾什么是Spring"></a>回顾什么是Spring</h3><p>Spring是一个开源框架，2003 年兴起的一个轻量级的Java 开发框架，作者：Rod Johnson  。</p>
+<p><strong>Spring是为了解决企业级应用开发的复杂性而创建的，简化开发。</strong></p>
+<h3 id="Spring是如何简化Java开发的"><a href="#Spring是如何简化Java开发的" class="headerlink" title="Spring是如何简化Java开发的"></a>Spring是如何简化Java开发的</h3><p>为了降低Java开发的复杂性，Spring采用了以下4种关键策略：</p>
+<p>1、基于POJO的轻量级和最小侵入性编程，所有东西都是bean；</p>
+<p>2、通过IOC，依赖注入（DI）和面向接口实现松耦合；</p>
+<p>3、基于切面（AOP）和惯例进行声明式编程；</p>
+<p>4、通过切面和模版减少样式代码，RedisTemplate，xxxTemplate；</p>
+<h3 id="什么是SpringBoot"><a href="#什么是SpringBoot" class="headerlink" title="什么是SpringBoot"></a>什么是SpringBoot</h3><p>学过javaweb的同学就知道，开发一个web应用，从最初开始接触Servlet结合Tomcat, 跑出一个Hello Wolrld程序，是要经历特别多的步骤；后来就用了框架Struts，再后来是SpringMVC，到了现在的SpringBoot，过一两年又会有其他web框架出现；你们有经历过框架不断的演进，然后自己开发项目所有的技术也在不断的变化、改造吗？建议都可以去经历一遍；</p>
+<p>言归正传，<strong>什么是SpringBoot呢，就是一个javaweb的开发框架</strong>，和SpringMVC类似，对比其他javaweb框架的好处，官方说是简化开发，约定大于配置，  you can “just run”，能迅速的开发web应用，几行代码开发一个http接口。</p>
+<p>所有的技术框架的发展似乎都遵循了一条主线规律：从一个复杂应用场景衍生一种规范框架，人们只需要进行各种配置而不需要自己去实现它，这时候强大的配置功能成了优点；发展到一定程度之后，人们根据实际生产应用情况，选取其中实用功能和设计精华，重构出一些轻量级的框架；之后为了提高开发效率，嫌弃原先的各类配置过于麻烦，于是开始提倡“约定大于配置”，进而衍生出一些<strong>一站式的解决方案</strong>。</p>
+<p>是的这就是Java企业级应用-&gt;J2EE-&gt;spring-&gt;springboot的过程。</p>
+<p>随着 Spring 不断的发展，涉及的领域越来越多，项目整合开发需要配合各种各样的文件，慢慢变得不那么易用简单，违背了最初的理念，甚至人称<strong>配置地狱</strong>。Spring Boot 正是在这样的一个背景下被抽象出来的开发框架，目的为了让大家更容易的使用 Spring 、更容易的集成各种常用的中间件、开源软件；</p>
+<p>Spring Boot 基于 Spring 开发，Spirng Boot 本身并不提供 Spring 框架的核心特性以及扩展功能，只是用于快速、敏捷地开发新一代基于 Spring 框架的应用程序。也就是说，它并不是用来替代 Spring 的解决方案，而是和 Spring 框架紧密结合用于提升 Spring 开发者体验的工具。Spring Boot 以<strong>约定大于配置的核心思想</strong>，默认帮我们进行了很多设置，多数 Spring Boot 应用只需要很少的 Spring 配置。同时它集成了大量常用的第三方库配置（例如 Redis、MongoDB、Jpa、RabbitMQ、Quartz 等等），Spring Boot 应用中这些第三方库几乎可以零配置的开箱即用。</p>
+<p>简单来说就是SpringBoot其实不是什么新的框架，它默认配置了很多框架的使用方式，<strong>就像maven整合了所有的jar包，spring boot整合了所有的框架 。</strong></p>
+<p>Spring Boot 出生名门，从一开始就站在一个比较高的起点，又经过这几年的发展，生态足够完善，Spring Boot 已经当之无愧成为 Java 领域最热门的技术。</p>
+<p><strong>Spring Boot的主要优点：</strong></p>
+<ul>
+<li>为所有Spring开发者更快的入门</li>
+<li><strong>开箱即用</strong>，提供各种默认配置来简化项目配置</li>
+<li>内嵌式容器简化Web项目</li>
+<li>没有冗余代码生成和XML配置的要求</li>
+</ul>
+<p>真的很爽，我们快速去体验开发个接口的感觉吧！</p>
+<h2 id="Hello，World"><a href="#Hello，World" class="headerlink" title="Hello，World"></a>Hello，World</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>我们将学习如何快速的创建一个Spring Boot应用，并且实现一个简单的Http请求处理。通过这个例子对Spring Boot有一个初步的了解，并体验其结构简单、开发快速的特性。</p>
+<p>我的环境准备：</p>
+<ul>
+<li>java version “1.8.0_181”</li>
+<li>Maven-3.6.1</li>
+<li>SpringBoot 2.x 最新版</li>
+</ul>
+<p>开发工具：</p>
+<ul>
+<li>IDEA</li>
+</ul>
+<h3 id="创建基础项目说明"><a href="#创建基础项目说明" class="headerlink" title="创建基础项目说明"></a>创建基础项目说明</h3><p>Spring官方提供了非常方便的工具让我们快速构建应用</p>
+<p>Spring Initializr：<a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a></p>
+<p><strong>项目创建方式一：</strong>使用Spring Initializr 的 Web页面创建项目</p>
+<p>1、打开  <a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a></p>
+<p>2、填写项目信息</p>
+<p>3、点击”Generate Project“按钮生成项目；下载此项目</p>
+<p>4、解压项目包，并用IDEA以Maven项目导入，一路下一步即可，直到项目导入完毕。</p>
+<p>5、如果是第一次使用，可能速度会比较慢，包比较多、需要耐心等待一切就绪。</p>
+<p><strong>项目创建方式二：</strong>使用 IDEA 直接创建项目</p>
+<p>1、创建一个新项目</p>
+<p>2、选择spring initalizr ， 可以看到默认就是去官网的快速构建工具那里实现</p>
+<p>3、填写项目信息</p>
+<p>4、选择初始化的组件（初学勾选 Web 即可）</p>
+<p>5、填写项目路径</p>
+<p>6、等待项目构建成功</p>
+<p><strong>项目结构分析：</strong></p>
+<p>通过上面步骤完成了基础项目的创建。就会自动生成以下文件。</p>
+<p>1、程序的主启动类</p>
+<p>2、一个 application.properties 配置文件</p>
+<p>3、一个 测试类</p>
+<p>4、一个 pom.xml</p>
+<h3 id="pom-xml-分析"><a href="#pom-xml-分析" class="headerlink" title="pom.xml 分析"></a>pom.xml 分析</h3><p>打开pom.xml，看看Spring Boot项目的依赖：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">></span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-parent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.4.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>relativePath</span><span class="token punctuation">/></span></span> <span class="token comment" spellcheck="true">&lt;!-- lookup parent from repository --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.zhou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>springboot-01-helloworld<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>springboot-01-helloworld<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">></span></span>my first demo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">></span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.4.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="编写一个http接口"><a href="#编写一个http接口" class="headerlink" title="编写一个http接口"></a>编写一个http接口</h3><p>1、在主程序的同级目录下，新建一个controller包，一定要在同级目录下，否则识别不到</p>
+<p>2、在包中新建一个HelloController类</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloController</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span>    
+    <span class="token keyword">public</span> String <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        
+        <span class="token keyword">return</span> <span class="token string">"Hello World"</span><span class="token punctuation">;</span>    
+    <span class="token punctuation">}</span>    
+<span class="token punctuation">}</span></code></pre>
+<p>3、编写完毕后，从主程序启动项目，浏览器发起请求，看页面返回；控制台输出了 Tomcat 访问的端口号！</p>
+<p><img src="SpringBoot.assets/image-20210223002817756.png" alt="image-20210223002817756" loading="lazy"></p>
+<p>简单几步，就完成了一个web接口的开发，SpringBoot就是这么简单。所以我们常用它来建立我们的微服务项目！</p>
+<h3 id="将项目打成jar包，点击-maven的-package"><a href="#将项目打成jar包，点击-maven的-package" class="headerlink" title="将项目打成jar包，点击 maven的 package"></a>将项目打成jar包，点击 maven的 package</h3><p><img src="SpringBoot.assets/640.jpg" alt="640" loading="lazy"></p>
+<p>如果遇到以上错误，可以配置打包时 跳过项目运行测试用例</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--    在工作中,很多情况下我们打包是不想执行测试用例的    可能是测试用例不完事,或是测试用例会影响数据库数据    跳过测试用例执    --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>        
+        <span class="token comment" spellcheck="true">&lt;!--跳过项目运行测试用例--></span>        
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">></span></span>   dd 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span></code></pre>
+<p>如果打包成功，则会在target目录下生成一个 jar 包</p>
+<p>![6401 (1)](SpringBoot.assets/6401 (1).jpg)</p>
+<p>打成了jar包后，就可以在任何地方运行了！OK</p>
+<p><strong>彩蛋</strong></p>
+<p>如何更改启动时显示的字符拼成的字母，SpringBoot呢？也就是 banner 图案；</p>
+<p>只需一步：到项目下的 resources 目录下新建一个banner.txt 即可。</p>
+<p>图案可以到：<a href="https://www.bootschool.net/ascii" target="_blank" rel="noopener">https://www.bootschool.net/ascii</a> 这个网站生成，然后拷贝到文件中即可！</p>
+<p><img src="SpringBoot.assets/image-20210223003108912.png" alt="image-20210223003108912" loading="lazy"></p>
+<p><strong>SpringBoot这么简单的东西背后一定有故事，我们之后去进行一波源码分析！</strong></p>
+<h2 id="运行原理初探"><a href="#运行原理初探" class="headerlink" title="运行原理初探"></a>运行原理初探</h2><p><a href="https://www.cnblogs.com/hellokuangshen/p/12450327.html" target="_blank" rel="noopener">https://www.cnblogs.com/hellokuangshen/p/12450327.html</a></p>
+<p>结论：springboot所有自动配置都是在启动的时候扫描并加载：spring.factories所有的自动配置类都在这里面，但是不一定生效，要判断条件是否成立，只要导入了对应的start，就有对应的启动器了，有了启动器，我们自动装配就会生效，然后就配置成功！</p>
+<ol>
+<li><p>springboot在启动的时候，从类路径下/META-INF/spring factories获取指定的值；</p>
+</li>
+<li><p>将这些自动配置的类导入容器，自动配置就会生效，帮我进行自动配置！</p>
+</li>
+<li><p>以前我们需要自动配置的东西，现在springboot帮我们做了！</p>
+</li>
+<li><p>整合javaEE，解决方案和自动配置的东西都在spring-boot-autoconfigure-2.2.0.RELEASE.jar这个包下</p>
+</li>
+<li><p>它会把所有需要导入的组件，以类名的方式返回，这些组件就会被添加到容器；</p>
+</li>
+<li><p>容器中也会存在非常多的xxxAutoConfiguration的文件（@Bean），就是这些类给容器中导入了这个场景需要的所有组件；并自动配置，@Configuration，JavaConfig！</p>
+</li>
+<li><p>有了自动配置类，免去了我们手动编写配置文件的工作！</p>
+</li>
+</ol>
+<h3 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a><strong>pom.xml</strong></h3><p>。。。</p>
+<h3 id="主启动类"><a href="#主启动类" class="headerlink" title="主启动类"></a><strong>主启动类</strong></h3><p>。。。</p>
+<h3 id="SpringApplication"><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a><strong>SpringApplication</strong></h3><h4 id="不简单的方法"><a href="#不简单的方法" class="headerlink" title="不简单的方法"></a>不简单的方法</h4><p>我最初以为就是运行了一个main方法，没想到却开启了一个服务；</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringbootApplication</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>SpringbootApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>SpringApplication.run分析</strong></p>
+<p>分析该方法主要分两部分，一部分是SpringApplication的实例化，二是run方法的执行；</p>
+<h4 id="SpringApplication-1"><a href="#SpringApplication-1" class="headerlink" title="SpringApplication"></a>SpringApplication</h4><p><strong>这个类主要做了以下四件事情：</strong></p>
+<p>1、推断应用的类型是普通的项目还是Web项目</p>
+<p>2、查找并加载所有可用初始化器 ， 设置到initializers属性中</p>
+<p>3、找出所有的应用程序监听器，设置到listeners属性中</p>
+<p>4、推断并设置main方法的定义类，找到运行的主类</p>
+<p>查看构造器：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token function">SpringApplication</span><span class="token punctuation">(</span>ResourceLoader resourceLoader<span class="token punctuation">,</span> Class<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> primarySources<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ......</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>webApplicationType <span class="token operator">=</span> WebApplicationType<span class="token punctuation">.</span><span class="token function">deduceFromClasspath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setInitializers</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getSpringFactoriesInstances</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setListeners</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getSpringFactoriesInstances</span><span class="token punctuation">(</span>ApplicationListener<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>mainApplicationClass <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">deduceMainApplicationClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="run方法流程分析"><a href="#run方法流程分析" class="headerlink" title="run方法流程分析"></a>run方法流程分析</h4><p><img src="SpringBoot.assets/1418974-20200309184347408-1065424525.png" alt="img" loading="lazy"></p>
+<p>关于SpringBoot，谈谈你的理解：</p>
+<ul>
+<li>自动装配</li>
+<li>run()</li>
+</ul>
+<h2 id="springboot配置"><a href="#springboot配置" class="headerlink" title="springboot配置"></a>springboot配置</h2><h3 id="yaml语法"><a href="#yaml语法" class="headerlink" title="yaml语法"></a>yaml语法</h3><p><img src="SpringBoot.assets/image-20210226225440506.png" alt="image-20210226225440506" loading="lazy"></p>
+<p><img src="SpringBoot.assets/image-20210226225453745.png" alt="image-20210226225453745" loading="lazy"></p>
+<h2 id="SpringBoot-Web开发"><a href="#SpringBoot-Web开发" class="headerlink" title="SpringBoot Web开发"></a>SpringBoot Web开发</h2><p>自动装配</p>
+</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">如果喜欢就点赞or赞赏</div><div id="qr" style="display:none;"><div style="display:inline-block"><a href="https://cdn.jsdelivr.net/gh/xf-zhou/CDN/img/donate/alipay-qrcode.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/xf-zhou/CDN/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a href="https://cdn.jsdelivr.net/gh/xf-zhou/CDN/img/donate/wechatpay-qrcode.png" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/xf-zhou/CDN/img/donate/wechatpay-qrcode.png" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>xfzhou</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://xfzhou95.com/2021/02/21/SpringBoot/" title="SpringBoot">https://xfzhou95.com/2021/02/21/SpringBoot/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/02/28/%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/404/" rel="prev" title="新建文件夹/404"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">新建文件夹/404</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/02/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式"><span class="post-nav-text">设计模式</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+SpringBoot" target="_blank" rel="noopener">GitHub Issues</a></div><div id="valine-container"></div><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function initValine() {
+  const valineConfig = {"enable":true,"appId":"Ly4ohwKW5DOjAswrfhXkSbDp-gzGzoHsz","appKey":"7JcswEnhHmu9mlhqlDVWRzon","placeholder":"说点什么","avatar":null,"meta":["nick","mail","link"],"pageSize":10,"visitor":true,"recordIP":true,"enableQQ":true,"requiredFields":["nick","mail"],"highlight":true,"el":"#valine-container","lang":"zh-cn"}
+  valineConfig.path = window.location.pathname
+  new Valine(valineConfig)
+}
+setTimeout(initValine, 1000)</script></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-user-line"></use></svg></span><span class="author"> xfzhou</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v4.2.1</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v0.9.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  window.setTimeout(blog_live_time, 1000);
+  const start = new Date('2019-06-19T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#6200ee" stroke-width="2" stroke-linecap="round"></circle></svg></a></div><script defer src="/js/utils.js"></script><script defer src="/js/hexo-theme-yun.js"></script></body></html>
